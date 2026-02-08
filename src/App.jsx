@@ -6,10 +6,12 @@ import { AppShell, Burger, Group, NavLink, Image } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import HomeArea from './components/Home.jsx'
 import PartsList from './components/PartsList.jsx'
+import PartView from './components/PartView.jsx'
 import {Link, BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Toaster} from 'sonner'
 
 function App() {
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { toggle, close }] = useDisclosure();
   return (<>
   <BrowserRouter>
   <AppShell
@@ -38,11 +40,13 @@ function App() {
           component={Link}
           to="/" 
           label="Home" 
+          onClick={close}
         /> 
         <NavLink
           component={Link}
           to="/parts" 
           label="Parts" 
+          onClick={close}
         /> 
        
       </AppShell.Navbar>
@@ -51,9 +55,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeArea/>}/>
           <Route path="/parts" element={<PartsList/>}/>
+          <Route path="/parts/:id" element={<PartView/>}/>
         </Routes>
       </AppShell.Main>
     </AppShell>
+    <Toaster/>
   </BrowserRouter>
   </>);
 }

@@ -1,6 +1,6 @@
-import {useState,useEffect} from 'react'
-import {Card, Image, Text} from '@mantine/core'
+import {useState,useEffect} from 'react' 
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 const PartsList = function(props){
     const [parts,setParts] = useState([]);
@@ -22,25 +22,21 @@ const PartsList = function(props){
     },[]);
 
     return (<div> 
-        <h3 class="text-3xl font-weight-700 mb-4">Parts</h3>
+        <h3 className="text-3xl font-weight-700 mb-4">Parts</h3>
         <div className="grid sm:grid-cols-3 gap-4 p-4">
         {parts.map( (part,v) => {
             return (
-    <Card key={v} withBorder radius="md"  >
-      <Card.Section component="div">
-        <Image className="h-60" src={part.thumbnail} height={180} alt={part.title} />
-      </Card.Section>
-
+    <Link key={v} className="bg-black-500 radius-4" to={'/parts/'+part.id}  > 
+        <img className="block h-60" src={part.thumbnail} height={180} alt={part.title} />
       <strong className="text-lg py-2"
         component="strong"  
       >
         {part.title}
       </strong>
-
-      <Text fz="sm" lineClamp={4} opacity={0.9}>
+      <p fz="sm" lineClamp={4} opacity={0.9}>
         {part.content}
-      </Text>
-    </Card>
+      </p>
+    </Link>
             );
         } )}
     </div></div>);
