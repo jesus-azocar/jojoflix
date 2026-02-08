@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root{ 
+  --mantine-color-body: #000 !important;
+}
+
+strong{
+  font-weight: 700 !important;
+}
+
+.jojosImg{
+  max-width: 100%;;
+}
+
+.jojosLogo{
+  margin:.5em 1em;
+  box-sizing: content-box;
+  width: 100px;
+}
