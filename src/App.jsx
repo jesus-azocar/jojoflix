@@ -6,6 +6,7 @@ import { AppShell, Burger, Group, NavLink, Image } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import HomeArea from './components/Home.jsx'
 import PartsList from './components/PartsList.jsx'
+import Stats from './components/Stats.jsx'
 import PartView from './components/PartView.jsx'
 import {Link, BrowserRouter, Routes, Route} from 'react-router-dom'
 import {Toaster} from 'sonner'
@@ -48,6 +49,12 @@ function App() {
           label="Parts" 
           onClick={close}
         /> 
+        <NavLink
+          component={Link}
+          to="/stats" 
+          label="Stats" 
+          onClick={close}
+        /> 
        
       </AppShell.Navbar>
 
@@ -56,6 +63,8 @@ function App() {
           <Route path="/" element={<HomeArea/>}/>
           <Route path="/parts" element={<PartsList/>}/>
           <Route path="/parts/:id" element={<PartView/>}/>
+          <Route path="/stats" element={<Stats/>}/>
+          <Route path="/stats/parts/:id" element={<Stats/>}/>
         </Routes>
       </AppShell.Main>
     </AppShell>

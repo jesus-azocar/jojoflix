@@ -1,24 +1,13 @@
 import {useState,useEffect} from 'react' 
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {getJojoParts} from './utilities/model.js'
 
 const PartsList = function(props){
     const [parts,setParts] = useState([]);
 
-    async function getJojoParts(){
-            const partsURL = "https://jesusazocar.com/wp-json/jojoflix/v1/parts";
-            let p;
-            try{ 
-                p = await axios.get(partsURL);
-                setParts(p.data);
-            }catch(e){
-                console.log("There was an error fetching the parts",e);
-                return [];
-            }
-        }
-
     useEffect(() =>{
-        getJojoParts(); 
+        getJojoParts(setParts); 
     },[]);
 
     return (<div> 
