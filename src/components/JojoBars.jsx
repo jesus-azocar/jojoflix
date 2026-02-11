@@ -16,7 +16,7 @@ ChartJS.register(CategoryScale, LinearScale,BarElement, Tooltip, Legend, Title);
 
 function JojoBars({ dailyVotes }) {
     
-  const barColors = dailyVotes.map(() => randomColor(dailyVotes.length));
+  const barColors =  randomColor(dailyVotes.length);
   const [chartData, setChartData] = useState( {
     labels: dailyVotes.map((v) => v.daily), 
     datasets: [

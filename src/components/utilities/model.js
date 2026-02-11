@@ -14,16 +14,26 @@ async function getJojoParts(cb){
 
 const randomColor = (l) => {
     const r = Math.floor(l * Math.random());
-  return [
-  'rgba(255, 0, 255, 0.7)',   // Fucsia "Shocking Pink" (Muy Jolyne)
-  'rgba(0, 255, 255, 0.7)',   // Cyan Eléctrico
-  'rgba(255, 215, 0, 0.7)',   // Oro Giorno Giovanna
-  'rgba(147, 51, 234, 0.7)',  // Morado Star Platinum
-  'rgba(50, 255, 50, 0.7)',   // Verde Neón "Hierophant"
-  'rgba(255, 100, 0, 0.7)',   // Naranja Magician's Red
-  'rgba(255, 50, 150, 0.7)',  // Rosa chicle
-  'rgba(100, 100, 255, 0.7)', // Azul Josuke
-][r]; 
+  let a = [
+  '#FFC312','#C4E538','#12CBC4','#FDA7DF','#ED4C67',
+  '#F79F1F','#A3CB38','#1289A7','#D980FA','#B53471',
+  '#EE5A24','#009432','#0652DD','#833471'
+];
+  shuffle(a);
+  return a.slice(0,l); 
 };
+
+function shuffle(array) {
+  let currentIndex = array.length;
+ 
+  while (currentIndex != 0) {
+ 
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+ 
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
 
 export {getJojoParts, randomColor}

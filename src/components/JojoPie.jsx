@@ -13,9 +13,9 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 function JojoPie({ starsDist }) {
-  const pieColors = starsDist.map(() => randomColor(starsDist.length));
+  const pieColors =  randomColor(starsDist.length);
   const [chartData, setChartData] = useState( {
-    labels: starsDist.map((v) => v.stars+' stars'), 
+    labels: starsDist.map((v) => v.stars+( v.stars > 1 ? ' stars' : 'star')), 
     datasets: [
       { 
         data: starsDist.map((v) => v.totalvotes),

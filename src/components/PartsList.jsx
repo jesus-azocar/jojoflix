@@ -12,7 +12,7 @@ const PartsList = function(props){
 
     return (<div> 
         <h3 className="text-3xl font-weight-700 mb-4">Parts</h3>
-        <div className="grid sm:grid-cols-3 gap-4 p-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4">
         {parts.map( (part,v) => {
             return (
     <Link key={v} className="flex flex-col items-center justify-between bg-gray-800 p-4 rounded-sm radius-4" to={'/parts/'+part.id}  > 
