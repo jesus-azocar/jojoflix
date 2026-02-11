@@ -25,7 +25,7 @@ const Stats = function(){
         getJojoParts(setParts);
     }, [] );
     
-    return(<div class="w-full">
+    return(<div className="w-full">
         <select value={scope} onChange={ (e) => setScope(e.target.value) } className="p-1 bg-gray-300 text-black rounded-3">
             <option value="1" >All Jojo Parts</option>
             <option value="2" >Single Jojo Part</option> 

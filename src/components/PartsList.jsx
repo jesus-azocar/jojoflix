@@ -15,16 +15,13 @@ const PartsList = function(props){
         <div className="grid sm:grid-cols-3 gap-4 p-4">
         {parts.map( (part,v) => {
             return (
-    <Link key={v} className="bg-black-500 radius-4" to={'/parts/'+part.id}  > 
-        <img className="block h-60" src={part.thumbnail} height={180} alt={part.title} />
-      <strong className="text-lg py-2"
+    <Link key={v} className="flex flex-col items-center justify-between bg-gray-800 p-4 rounded-sm radius-4" to={'/parts/'+part.id}  > 
+        <img className="block w-full" src={part.thumbnail} height={180} alt={part.title} />
+      <strong className="text-2xl text-center py-2 text-white"
         component="strong"  
       >
         {part.title}
-      </strong>
-      <p fz="sm" lineClamp={4} opacity={0.9}>
-        {part.content}
-      </p>
+      </strong> 
     </Link>
             );
         } )}
