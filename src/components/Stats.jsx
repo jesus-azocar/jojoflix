@@ -11,7 +11,7 @@ const Stats = function(){
     const [parts, setParts] = useState([]);
 
     const fetchGlobal = async function(){
-        const url = "https:/jesusazocar.com/wp-json/jojoflix/v1/stats";
+        const url = "https://jesusazocar.com/wp-json/jojoflix/v1/stats";
         try{
             const stats = await axios.get(url);
             setGlobalData(stats.data[0]);
